@@ -1,0 +1,52 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: url('./background.jpg') center center / cover no-repeat;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  text-align: center;
+}
+
+.app {
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6); /* overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 600px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+.card h1 {
+  font-size: 2rem;
+}
+
+.card p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.card button {
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 30px;
+  background-color: #ff69b4;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.card button:hover {
+  background-color: #ff1493;
+}
