@@ -14,6 +14,7 @@ import HeartRain from "./HeartRain";
 import ConfettiEffect from "./ConfettiEffect";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import emailjs from "emailjs-com";
 
 const audio = new Audio("/hpbd.mp3");
 
@@ -98,6 +99,26 @@ const BirthdayCard = () => {
       }, 6000); // 4.5 giây sau slide cuối thì hiện kết
     }
   };
+
+  const sendHunAlertEmail = () => {
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          to_name: "Văn Đế Phạm",
+          message: "Em đã bấm 'Có 💋' rồi đó! 😘",
+        },
+        import.meta.env.VITE_EMAILJS_USER_ID
+      )
+      .then((result) => {
+        console.log("Email sent successfully!", result.text);
+      })
+      .catch((error) => {
+        console.error("Email sending failed:", error.text);
+      });
+  };
+
   return (
     <div className="card" style={{ backgroundImage: `url(${birthdayBg})` }}>
       {!showMainContent ? (
@@ -210,7 +231,10 @@ const BirthdayCard = () => {
                     {/* Nút "Có 💋" cũng to dần */}
                     <button
                       className="next-btn"
-                      onClick={() => setShowKissVideo(true)}
+                      onClick={() => {
+                        setShowKissVideo(true);
+                        sendHunAlertEmail(); // 👈 Gửi mail ngay khi hun
+                      }}
                       style={{
                         fontSize: `${1 + refusedCount * 0.1}rem`,
                         padding: `${0.5 + refusedCount * 0.1}rem ${
