@@ -28,7 +28,7 @@ const BirthdayCard = () => {
   const [refusedCount, setRefusedCount] = useState(0);
   const [showKissVideo, setShowKissVideo] = useState(false);
   const introMessage =
-    " 💟Chào em  bé ... anh có một món quà nhỏ và đôi lời muốn gửi đến em nhân ngày hôm nay... 💟";
+    " 💟 Chào em  bé ... anh có một món quà nhỏ và đôi lời muốn gửi đến em nhân ngày hôm nay... 💟";
   const popups = [
     {
       img: thuan1,
@@ -95,7 +95,7 @@ const BirthdayCard = () => {
     if (index === popups.length - 1) {
       setTimeout(() => {
         setShowEnding(true);
-      }, 4500); // 4.5 giây sau slide cuối thì hiện kết
+      }, 6000); // 4.5 giây sau slide cuối thì hiện kết
     }
   };
   return (
@@ -184,7 +184,13 @@ const BirthdayCard = () => {
                     nhé 💝
                     <br />
                     <br />
-                    <span style={{ fontSize: "1.3rem", color: "#ffe066" }}>
+                    <span
+                      style={{
+                        fontSize: "1.3rem",
+                        color: "#ffe066",
+                        textShadow: "0 0 5px rgba(0, 0, 0, 0.8)",
+                      }}
+                    >
                       {refusedCount === 0 && "Cho anh hunn miếng nha?"}
                       {refusedCount === 1 &&
                         "Chỉ một miếng thôi mà, được không nè? 😚"}
@@ -264,11 +270,12 @@ const BirthdayCard = () => {
                 <div className="fade-in" style={{ textAlign: "center" }}>
                   <p
                     style={{
+                      paddingTop: "0.2rem",
+                      lineHeight: "1",
                       fontSize: "1.3rem",
-                      fontWeight: "bold",
-                      marginBottom: "1rem",
-                      color: "#ff6b81",
-                      textShadow: "0 0 5px rgba(3, 9, 21, 0.8)",
+                      fontWeight: "900",
+                      color: "#dd4664",
+                      textShadow: "0 0 8px rgba(166, 175, 193, 0.8)",
                     }}
                   >
                     💞 Hihi cảm ơn em! Hun nè 💞
@@ -277,6 +284,7 @@ const BirthdayCard = () => {
                     src={kiss}
                     alt="Cute kiss"
                     style={{
+                      marginBottom: "0.5rem",
                       width: "100%",
                       maxWidth: "300px",
                       borderRadius: "20px",
